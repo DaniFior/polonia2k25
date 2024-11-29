@@ -114,44 +114,72 @@
         }
 
         @media (max-width: 768px) {
-            .calendar-days {
-                grid-template-columns: repeat(2, 1fr);
+            .hero {
+                height: 300px;
+                /* Altezza ridotta per mobile */
             }
 
-            .calendar-days div {
-                min-height: 120px;
+            .hero h1 {
+                font-size: 2.5rem;
+                /* Testo più piccolo */
             }
 
-            .event-details {
-                font-size: 0.8em;
+            .hero p {
+                font-size: 1.2rem;
             }
         }
 
+        /* Migliora la visualizzazione delle card dei trasporti */
+        @media (max-width: 576px) {
+            .transport-section {
+                max-width: 100%;
+                margin: 10px 0;
+            }
+
+            .card {
+                margin: 10px 0;
+            }
+
+            .card-body {
+                padding: 15px;
+            }
+        }
+
+        /* Migliora la leggibilità della legenda del calendario */
         @media (max-width: 480px) {
-            .calendar-days {
-                grid-template-columns: 1fr;
+            .calendar-legend .d-flex {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .event-details {
+                font-size: 0.85em;
+            }
+
+            .date {
+                font-size: 1em;
             }
         }
 
         .travel-info {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            display: flex;
-            flex-direction: row;
-            /* Assicura che gli elementi siano in orizzontale */
-            justify-content: space-between;
-            /* Distribuisce lo spazio tra gli elementi */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            /* Spazio tra gli elementi */
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            justify-items: center;
         }
 
         .transport-section {
-            flex: 1;
-            /* Fa sì che ogni sezione occupi lo stesso spazio */
+            background: #ffffff;
+            border-radius: 10px;
             padding: 20px;
-            border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 350px;
+            margin: 10px;
         }
 
         .transport-section h3 {
@@ -210,8 +238,8 @@
         <!-- Riassunto del viaggio -->
         <section id="riassuntoviaggio">
             <h2 class="text-center mb-4">Riassunto del nostro viaggio</h2>
-            <div class="row">
-                <div class="col-md-4">
+            <div class="row g-3"> <!-- Aggiunto g-3 per lo spacing -->
+                <div class="col-12 col-md-4">
                     <div class="card">
                         <img src="https://images.unsplash.com/photo-1519197924294-4ba991a11128" class="card-img-top"
                             alt="Varsavia">
@@ -272,25 +300,25 @@
                                 <div class="event auschwitz">
                                     <span class="date">Venerdì 23</span>
                                     <div class="event-details">
-                                        <p>• Pullman per Auschwitz ore 6:00</p>
-                                        <p>• Entrata ad Auschwitz</p>
-                                        <p>• Pullman per Cracovia ore 19:00</p>
+                                        <p>• Treno per Auschwitz ore TBD</p>
+                                        <p>• Entrata a Auschwitz-Birkenau</p>
+                                        <p>• Treno per Cracovia ore TBD</p>
                                     </div>
                                 </div>
                                 <div class="event cracovia">
                                     <span class="date">Sabato 24</span>
                                     <div class="event-details">
-                                        <p>• Castello di Wawel</p>
-                                        <p>• Quartiere Kazimierz</p>
-                                        <p>• Cena tradizionale</p>
+                                        <p>• Pullman per Cracovia ore 06:00</p>
+                                        <p>• Visitiamo Cracovia</p>
+                                        <p>• Pullman per Varsavia ore 19:00</p>
                                     </div>
                                 </div>
                                 <div class="event varsavia">
                                     <span class="date">Domenica 25</span>
                                     <div class="event-details">
-                                        <p>• Museo Insurrezione</p>
-                                        <p>• Shopping</p>
-                                        <p>• Volo per Italia</p>
+                                        <p>• Visitiamo Varsavia</p>
+                                        <p>• Direzione Aeroporto</p>
+                                        <p>• Volo di ritorno ore 17:40</p>
                                     </div>
                                 </div>
                             </div>
@@ -316,7 +344,7 @@
                                 <li>Route: <span>N. 986, Direzione Budapest Népliget</span></li>
                             </ul>
                         </div>
-                    
+
                         <div class="transport-section bus">
                             <h3>Pullman Ritorno</h3>
                             <ul>
@@ -324,9 +352,9 @@
                                 <li>Indirizzo: <span>Ul. Bosacka 18</span></li>
                                 <li>Piattaforma: <span>Unica</span></li>
                                 <li>Route: <span>N. 1261, Direzione Warszawa Zachodnia</span></li>
-                            </ul>   
+                            </ul>
                         </div>
-                    
+
                         <!-- Trasporti Ritorno -->
                         <div class="transport-section train">
                             <h3>Treno Andata</h3>
@@ -335,9 +363,9 @@
                                 <li>Indirizzo: <span></span></li>
                                 <li>Binario: <span></span></li>
                                 <li>Route: <span></span></li>
-                            </ul>   
+                            </ul>
                         </div>
-                    
+
                         <div class="transport-section train">
                             <h3>Treno Ritorno</h3>
                             <ul>
@@ -345,7 +373,28 @@
                                 <li>Indirizzo: <span></span></li>
                                 <li>Binario: <span></span></li>
                                 <li>Route: <span></span></li>
-                            </ul>   
+                            </ul>
+                        </div>
+                        <!-- Nuovo div per Aereo Andata -->
+                        <div class="transport-section flight">
+                            <h3>Aereo Andata</h3>
+                            <ul>
+                                <li>Orario: <span>08:45</span></li>
+                                <li>Aeroporto: <span>Fiumicino, Roma</span></li>
+                                <li>Gate: <span>TBD</span></li>
+                                <li>Volo: <span>WizzAir - ZM714D</span></li>
+                            </ul>
+                        </div>
+
+                        <!-- Nuovo div per Aereo Ritorno -->
+                        <div class="transport-section flight">
+                            <h3>Aereo Ritorno</h3>
+                            <ul>
+                                <li>Orario: <span>17:40</span></li>
+                                <li>Aeroporto: <span>Chopin, Varsavia</span></li>
+                                <li>Gate: <span>TBD</span></li>
+                                <li>Volo: <span>WizzAir - W61443</span></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -387,7 +436,7 @@
         <!-- Biglietti già acquistati -->
         <section id="biglietti" class="mb-5">
             <h3 class="text-center mb-4">Biglietti già acquistati</h3>
-            <div class="row">
+            <div class="row g-3">
                 <div class="col-md-4">
                     <div class="card">
                         <div class="card-body">
