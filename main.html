@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<!-- Head -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viaggio in Polonia 2025</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- CSS -->
+    <style>
+        .hero {
+            background-image: linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0.8) 50%,
+                    rgba(220, 20, 60, 0.8) 50%);
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card {
+            margin: 20px 0;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .calendar-grid {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .calendar-days div {
+            padding: 15px;
+            background: white;
+            min-height: 150px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .date {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 1.1em;
+        }
+
+        .event-details {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        .event-details p {
+            margin: 0;
+            padding: 3px 0;
+        }
+
+        .event {
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: transform 0.2s;
+        }
+
+        .varsavia {
+            border-left: 4px solid #007bff;
+        }
+
+        .auschwitz {
+            border-left: 4px solid #dc3545;
+        }
+
+        .cracovia {
+            border-left: 4px solid #28a745;
+        }
+
+        .event:hover {
+            transform: scale(1.03);
+            z-index: 1;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .legend-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 5px;
+        }
+
+        .varsavia-dot {
+            background-color: #007bff;
+        }
+
+        .auschwitz-dot {
+            background-color: #dc3545;
+        }
+
+        .cracovia-dot {
+            background-color: #28a745;
+        }
+
+        @media (max-width: 768px) {
+            .calendar-days {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .calendar-days div {
+                min-height: 120px;
+            }
+
+            .event-details {
+                font-size: 0.8em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .calendar-days {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .travel-info {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            /* Assicura che gli elementi siano in orizzontale */
+            justify-content: space-between;
+            /* Distribuisce lo spazio tra gli elementi */
+            gap: 20px;
+            /* Spazio tra gli elementi */
+        }
+
+        .transport-section {
+            flex: 1;
+            /* Fa sì che ogni sezione occupi lo stesso spazio */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .transport-section h3 {
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .transport-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .transport-section li {
+            margin-bottom: 10px;
+            color: #666;
+        }
+
+        .transport-section span {
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-plane-departure"></i> Polonia 2025</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#riassuntoviaggio">Riassunto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#calendario">Calendario</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#biglietti">Biglietti</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="text-center">
+            <h1 class="display-3" style="color: black;">Polonia 2k25</h1>
+            <p class="lead" style="color: black;">Un viaggio in teoria culturale</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-5">
+        <!-- Riassunto del viaggio -->
+        <section id="riassuntoviaggio">
+            <h2 class="text-center mb-4">Riassunto del nostro viaggio</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1519197924294-4ba991a11128" class="card-img-top"
+                            alt="Varsavia">
+                        <div class="card-body">
+                            <h5 class="card-title">Varsavia</h5>
+                            <p class="card-text">22 e 25 Febbraio nella capitale storica</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://www.auschwitz.org/gfx/auschwitz/_thumbs/en/defaultgalerie/713/1/1/20080713_1383508086_koszary,oHuCn6impHCVqcKHZpY.jpg"
+                            class="card-img-top" alt="Cancello d'ingresso di Auschwitz-Birkenau">
+                        <div class="card-body">
+                            <h5 class="card-title">Auschwitz</h5>
+                            <p class="card-text">23 Febbraio nel campo di concentramento</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1519197924294-4ba991a11128" class="card-img-top"
+                            alt="Cracovia">
+                        <div class="card-body">
+                            <h5 class="card-title">Cracovia</h5>
+                            <p class="card-text">24 Febbraio nella città medievale</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendario -->
+        <section id="calendario" class="my-5">
+
+            <!-- Timeline del viaggio -->
+            <section id="calendario" class="my-5">
+                <h2 class="text-center mb-4">Programma del Viaggio</h2>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="calendar-header d-flex justify-content-between align-items-center mb-4">
+                            <h3 class="mb-0">22-25 Febbraio 2025</h3>
+                        </div>
+
+                        <div class="calendar-grid">
+                            <div class="calendar-days">
+                                <div class="event varsavia">
+                                    <span class="date">Giovedì 22</span>
+                                    <div class="event-details">
+                                        <p>• Arrivo Aeroporto ore 08:45</p>
+                                        <p>• Check in Hotel dalle 14:00</p>
+                                        <p>• Visitiamo Varsavia</p>
+                                    </div>
+                                </div>
+                                <div class="event auschwitz">
+                                    <span class="date">Venerdì 23</span>
+                                    <div class="event-details">
+                                        <p>• Pullman per Auschwitz ore 6:00</p>
+                                        <p>• Entrata ad Auschwitz</p>
+                                        <p>• Pullman per Cracovia ore 19:00</p>
+                                    </div>
+                                </div>
+                                <div class="event cracovia">
+                                    <span class="date">Sabato 24</span>
+                                    <div class="event-details">
+                                        <p>• Castello di Wawel</p>
+                                        <p>• Quartiere Kazimierz</p>
+                                        <p>• Cena tradizionale</p>
+                                    </div>
+                                </div>
+                                <div class="event varsavia">
+                                    <span class="date">Domenica 25</span>
+                                    <div class="event-details">
+                                        <p>• Museo Insurrezione</p>
+                                        <p>• Shopping</p>
+                                        <p>• Volo per Italia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calendar-legend mt-4">
+                            <div class="d-flex gap-3 justify-content-center">
+                                <div><span class="legend-dot varsavia-dot"></span> Varsavia</div>
+                                <div><span class="legend-dot auschwitz-dot"></span> Auschwitz</div>
+                                <div><span class="legend-dot cracovia-dot"></span> Cracovia</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="travel-info">
+                        <!-- Trasporti Andata -->
+                        <div class="transport-section bus">
+                            <h3>Pullman Andata</h3>
+                            <ul>
+                                <li>Orario: <span>06:00 - 10:15</span></li>
+                                <li>Indirizzo: <span>Aleje Jerozolimskie 144</span></li>
+                                <li>Piattaforma: <span>11</span></li>
+                                <li>Route: <span>N. 986, Direzione Budapest Népliget</span></li>
+                            </ul>
+                        </div>
+                    
+                        <div class="transport-section bus">
+                            <h3>Pullman Ritorno</h3>
+                            <ul>
+                                <li>Orario: <span>19:00 - 23:10</span></li>
+                                <li>Indirizzo: <span>Ul. Bosacka 18</span></li>
+                                <li>Piattaforma: <span>Unica</span></li>
+                                <li>Route: <span>N. 1261, Direzione Warszawa Zachodnia</span></li>
+                            </ul>   
+                        </div>
+                    
+                        <!-- Trasporti Ritorno -->
+                        <div class="transport-section train">
+                            <h3>Treno Andata</h3>
+                            <ul>
+                                <li>Orario: <span></span></li>
+                                <li>Indirizzo: <span></span></li>
+                                <li>Binario: <span></span></li>
+                                <li>Route: <span></span></li>
+                            </ul>   
+                        </div>
+                    
+                        <div class="transport-section train">
+                            <h3>Treno Ritorno</h3>
+                            <ul>
+                                <li>Orario: <span></span></li>
+                                <li>Indirizzo: <span></span></li>
+                                <li>Binario: <span></span></li>
+                                <li>Route: <span></span></li>
+                            </ul>   
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Hotel -->
+            <h3 class="text-center mb-4">Dove alloggiamo</h3>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-hotel"></i> Dettagli Hotel</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-map-marker-alt text-danger"></i> <strong>Indirizzo:</strong>
+                                    22 Jasna, Sródmiescie (centro), 00-054 Varsavia, Polonia</li>
+                                <li><i class="fas fa-subway text-primary"></i> <strong>Metro:</strong> Stazione Centrum
+                                    (Linea M1), 5 minuti a piedi</li>
+                                <li><i class="fas fa-train text-success"></i> <strong>Tram:</strong> Linee 4, 15, 18, 35
+                                    - Fermata Centrum</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-concierge-bell"></i> Servizi Hotel</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-clock"></i> Reception 24/7</li>
+                                <li><i class="fas fa-key"></i> Check-in dalle 16:00 alle 20:00</li>
+                                <li><i class="fas fa-door-open"></i> Check-out entro le 11:00</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Biglietti già acquistati -->
+        <section id="biglietti" class="mb-5">
+            <h3 class="text-center mb-4">Biglietti già acquistati</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-route"></i> Mobilità</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://example.com/volo-andata" target="_blank"
+                                        class="text-decoration-none">
+                                        <i class="fas fa-plane-departure"></i> Volo di andata Roma-Varsavia
+                                    </a></li>
+                                <li class="mt-2"><a href="https://example.com/volo-ritorno" target="_blank"
+                                        class="text-decoration-none">
+                                        <i class="fas fa-plane-arrival"></i> Volo di ritorno Varsavia-Roma
+                                    </a></li>
+                                <li class="mt-2"><a href="https://ibb.co/jGhRH0M" target="_blank"
+                                        class="text-decoration-none">
+                                        <i class="fas fa-bus"></i> Bus di andata Varsavia-Auschwitz
+                                    </a></li>
+                                <li class="mt-2"><a href="https://ibb.co/5LRDkTL" target="_blank"
+                                        class="text-decoration-none">
+                                        <i class="fas fa-bus"></i> Bus di ritorno Auschwitz-Cracovia
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-hotel"></i> Hotel</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://jasnahotelik.pl/" target="_blank" class="text-decoration-none">
+                                        <i class="fas fa-bed"></i> Prenotazione Hotel Varsavia
+                                    </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><i class="fas fa-ticket-alt"></i> Attrazioni</h5>
+                            <h1>In arrivo</h1>
+                            <!--
+                            <ul class="list-unstyled">
+                                <li><a href="https://example.com/biglietto-auschwitz" target="_blank" class="text-decoration-none">
+                                    <i class="fas fa-monument"></i> Ingresso Auschwitz
+                                </a></li>
+                                <li class="mt-2"><a href="https://example.com/tour-cracovia" target="_blank" class="text-decoration-none">
+                                    <i class="fas fa-walking"></i> Tour guidato Cracovia
+                                </a></li>
+                            </ul>
+                        </div>
+                        -->
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container text-center">
+            <p>Programmato con ❤️ per il viaggio alla conquista della Polonia</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            })
+        });
+    </script>
+</body>
+
+</html>
